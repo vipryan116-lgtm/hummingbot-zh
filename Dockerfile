@@ -24,6 +24,9 @@ COPY setup.py .
 COPY LICENSE .
 COPY README.md .
 
+# Fix Windows CRLF -> LF so shebangs work in container (e.g. #!/usr/bin/env python)
+RUN find bin -type f -exec sed -i 's/\r$//' {} \;
+
 # activate hummingbot env when entering the CT
 SHELL [ "/bin/bash", "-lc" ]
 RUN echo "conda activate hummingbot" >> ~/.bashrc
