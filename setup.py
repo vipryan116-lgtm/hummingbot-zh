@@ -81,6 +81,8 @@ def main():
         "web3",
         "xrpl-py>=4.1.0",
         "PyYaml>=0.2.5",
+        "fastapi>=0.100.0",
+        "uvicorn[standard]>=0.22.0",
     ]
 
     # --- 1. Define Flags (But don't pass them to Cython yet) ---
