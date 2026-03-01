@@ -10,6 +10,12 @@ Hummingbot is an open-source framework that helps you design and deploy automate
 
 The Hummingbot codebase is free and publicly available under the Apache 2.0 open-source license. Our mission is to **democratize high-frequency trading** by creating a global community of algorithmic traders and developers that share knowledge and contribute to the codebase.
 
+### 简体中文界面 / Simplified Chinese UI
+
+本仓库在官方 Hummingbot 基础上增加了**简体中文** CLI 界面，通过环境变量 `HUMmingBOT_LANG=zh_CN` 即可切换。Docker 构建时已默认启用中文。详见 **[汉化说明.md](./汉化说明.md)**。
+
+This fork adds a **Simplified Chinese** CLI. Set `HUMmingBOT_LANG=zh_CN` to use it (Docker image uses it by default). See [汉化说明.md](./汉化说明.md) for details.
+
 ## Quick Links
 
 * [Website and Docs](https://hummingbot.org): Official Hummingbot website and documentation
@@ -34,16 +40,16 @@ Alternatively, if you are building new connectors/strategies or adding custom co
 
 Install [Docker Compose website](https://docs.docker.com/compose/install/).
 
-Clone the repo and use the provided `docker-compose.yml` file:
+Clone the repo and use the provided `docker-compose.yml` file (本仓库已配置为构建汉化版镜像并默认使用中文):
 
 ```bash
-# Clone the repository
-git clone https://github.com/hummingbot/hummingbot.git
-cd hummingbot
+# Clone the repository (使用本仓库则自带汉化)
+git clone https://github.com/vipryan116-lgtm/hummingbot-zh.git
+cd hummingbot-zh
 
-# Run Setup & Deploy
-make setup
-make deploy
+# Build and run (Windows 下无 make 时可直接用 docker compose)
+docker compose build hummingbot
+docker compose up -d
 
 # Attach to the running instance
 docker attach hummingbot
